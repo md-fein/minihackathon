@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serenity — Your Mental Wellness Hub</title>
+  <meta name="description" content="A calm, positive space for mental wellness. Breathing exercises, daily affirmations, mood tracking, and gratitude journaling — all in one beautiful place." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =================== NAV =================== -->
+  <nav>
+    <a class="nav-brand" href="#hero">
+      <span class="logo">🌿</span> Serenity
+    </a>
+    <div class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="#affirmation">Affirmations</a>
+      <a href="#breathing">Breathing</a>
+      <a href="#mood">Mood</a>
+      <a href="#journal">Journal</a>
+      <a href="#tips">Tips</a>
+      <a href="#resources">Help</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- =================== HERO =================== -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-eyebrow">🌸 Your Safe Space</div>
+          <h1 class="hero-title">
+            You deserve to feel<br>
+            <span class="gradient-text">calm &amp; cared for</span>
+          </h1>
+          <p class="hero-sub">
+            A gentle, judgment-free corner of the internet dedicated to your mental well-being.
+            Breathe, reflect, and be kind to yourself — one moment at a time.
+          </p>
+          <div class="hero-ctas">
+            <a href="#breathing" class="btn btn-primary">🫁 Start Breathing</a>
+            <a href="#affirmation" class="btn btn-ghost">✨ Daily Affirmation</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-orb">
+            <span class="hero-orb-inner">🌿</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== AFFIRMATION =================== -->
+  <section id="affirmation">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">✨ Daily Affirmation</div>
+        <h2 class="section-title">Words that lift you up</h2>
+        <p class="section-sub">Read, breathe, and believe. These affirmations are written just for you.</p>
+      </div>
+      <div class="affirmation-card reveal">
+        <div class="affirmation-icon">💜</div>
+        <p class="affirmation-text" id="affirmationText"></p>
+        <div class="affirmation-controls">
+          <button class="btn btn-primary" id="nextAffirmation">→ Next</button>
+          <button class="btn btn-teal" id="autoplayAffirmation">▶ Auto-play</button>
+        </div>
+        <p class="affirmation-counter" id="affirmationCounter"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== BREATHING =================== -->
+  <section id="breathing">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">🫁 Breathing Exercise</div>
+        <h2 class="section-title">4-7-8 Breathing Technique</h2>
+        <p class="section-sub">A scientifically-backed method to calm your nervous system in minutes.</p>
+      </div>
+      <div class="breathing-wrapper reveal">
+        <div class="breathing-circle-wrap">
+          <div class="breathing-ring"></div>
+          <div class="breathing-circle" id="breathingCircle">
+            <span class="breathing-emoji" id="breathEmoji">🌿</span>
+            <span class="breathing-count" id="breathCount"></span>
+            <span class="breathing-label" id="breathLabel">Press Start</span>
+            <span class="breathing-phase" id="breathPhase">Ready</span>
+          </div>
+        </div>
+        <p class="breathing-desc">Inhale for 4 sec • Hold for 7 sec • Exhale for 8 sec</p>
+        <button class="btn btn-primary" id="breathStart">▶ Start</button>
+        <div class="breathing-cycles">
+          <span style="font-size:0.85rem;font-weight:600;color:var(--text-muted)">Cycles:</span>
+          <div id="cycleDots" style="display:flex;gap:6px"></div>
+          <span style="font-size:0.82rem;color:var(--text-muted)">/ 4</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== MOOD =================== -->
+  <section id="mood">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">🎭 Mood Check-in</div>
+        <h2 class="section-title">How are you feeling today?</h2>
+        <p class="section-sub">No judgment here — just honest awareness. All feelings are welcome.</p>
+      </div>
+      <div class="mood-grid">
+        <div class="card mood-card reveal">
+          <p class="mood-picker-title">Tap your current mood</p>
+          <div class="mood-emojis" id="moodEmojis"></div>
+          <p class="mood-response" id="moodResponse">Choose an emoji above to check in 💛</p>
+        </div>
+        <div class="card mood-card reveal">
+          <p class="mood-picker-title mood-history-title">📊 Recent log</p>
+          <div class="mood-history" id="moodHistory"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== JOURNAL =================== -->
+  <section id="journal">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">📓 Gratitude Journal</div>
+        <h2 class="section-title">Reflect &amp; release</h2>
+        <p class="section-sub">Writing your thoughts is one of the most powerful tools for mental clarity and gratitude.</p>
+      </div>
+      <div class="card journal-inner reveal">
+        <div class="journal-prompts" id="journalPrompts"></div>
+        <textarea
+          class="journal-textarea"
+          id="journalTextarea"
+          placeholder="Start writing… there are no rules here. 💭"
+          aria-label="Journal entry"
+        ></textarea>
+        <div class="journal-footer">
+          <span class="word-count" id="wordCount">0 words</span>
+          <button class="btn btn-coral" id="saveJournal">💾 Save Entry</button>
+        </div>
+        <div class="journal-entries" id="journalEntries"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== TIPS =================== -->
+  <section id="tips">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">💡 Wellness Tips</div>
+        <h2 class="section-title">Simple habits, big impact</h2>
+        <p class="section-sub">Small, consistent actions can transform how you feel over time.</p>
+      </div>
+      <div class="tips-grid">
+        <div class="card tip-card reveal">
+          <div class="tip-icon">🌅</div>
+          <p class="tip-title">Morning Ritual</p>
+          <p class="tip-text">Start your day with 5 minutes of intentional stillness — no phone, no rush. Just breathe and set an intention.</p>
+        </div>
+        <div class="card tip-card reveal">
+          <div class="tip-icon">🚶</div>
+          <p class="tip-title">Move Your Body</p>
+          <p class="tip-text">Even a 10-minute walk outside can reduce anxiety and improve mood. Movement is medicine.</p>
+        </div>
+        <div class="card tip-card reveal">
+          <div class="tip-icon">💧</div>
+          <p class="tip-title">Stay Hydrated</p>
+          <p class="tip-text">Dehydration affects your concentration and mood more than you think. Keep a water bottle nearby.</p>
+        </div>
+        <div class="card tip-card reveal">
+          <div class="tip-icon">😴</div>
+          <p class="tip-title">Prioritize Sleep</p>
+          <p class="tip-text">7–9 hours of quality sleep is one of the most effective mental health tools available. Guard your rest.</p>
+        </div>
+        <div class="card tip-card reveal">
+          <div class="tip-icon">🤝</div>
+          <p class="tip-title">Connect with Others</p>
+          <p class="tip-text">A genuine conversation with someone you trust can shift your entire emotional state. Reach out today.</p>
+        </div>
+        <div class="card tip-card reveal">
+          <div class="tip-icon">📵</div>
+          <p class="tip-title">Digital Detox</p>
+          <p class="tip-text">Schedule 1 hour each evening without screens. Use it to read, stretch, or simply exist without input.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== RESOURCES =================== -->
+  <section id="resources">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">🆘 Get Support</div>
+        <h2 class="section-title">You are not alone</h2>
+        <p class="section-sub">Professional help is always available. Reaching out is a sign of strength, not weakness.</p>
+      </div>
+      <div class="resources-grid">
+        <div class="card resource-card reveal">
+          <div class="resource-header">
+            <div class="resource-icon purple">☎️</div>
+            <div>
+              <p class="resource-name">988 Suicide &amp; Crisis Lifeline</p>
+              <p class="resource-avail">24/7 — Call or Text</p>
+            </div>
+          </div>
+          <p class="resource-desc">Free, confidential support for people in distress. You deserve support, no matter what you're going through.</p>
+          <a class="resource-number" href="tel:988" aria-label="Call 988">📞 Call or Text 988</a>
+        </div>
+        <div class="card resource-card reveal">
+          <div class="resource-header">
+            <div class="resource-icon teal">💬</div>
+            <div>
+              <p class="resource-name">Crisis Text Line</p>
+              <p class="resource-avail">24/7 — Free Text Support</p>
+            </div>
+          </div>
+          <p class="resource-desc">Text with a trained crisis counselor. Sometimes it's easier to type than to talk — that's okay.</p>
+          <a class="resource-number" href="sms:741741&body=HELLO" aria-label="Text HOME to 741741">📱 Text HOME to 741741</a>
+        </div>
+        <div class="card resource-card reveal">
+          <div class="resource-header">
+            <div class="resource-icon coral">🌍</div>
+            <div>
+              <p class="resource-name">NAMI Helpline</p>
+              <p class="resource-avail">Mon–Fri, 10am–10pm ET</p>
+            </div>
+          </div>
+          <p class="resource-desc">The National Alliance on Mental Illness offers guidance, support, and resources for individuals and families.</p>
+          <a class="resource-number" href="tel:18009506264" aria-label="Call NAMI helpline">📞 1-800-950-6264</a>
+        </div>
+        <div class="card resource-card reveal">
+          <div class="resource-header">
+            <div class="resource-icon yellow">🌐</div>
+            <div>
+              <p class="resource-name">Find a Therapist</p>
+              <p class="resource-avail">Online &amp; In-person options</p>
+            </div>
+          </div>
+          <p class="resource-desc">Psychology Today's therapist finder helps you locate licensed mental health professionals near you or online.</p>
+          <a class="resource-number" href="https://www.psychologytoday.com/us/therapists" target="_blank" rel="noopener" aria-label="Find a therapist">🔍 Find a Therapist</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== FOOTER =================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">🌿 Serenity</div>
+      <p class="footer-copy">Made with 💜 for your well-being. You are enough.</p>
+      <p class="footer-note">
+        ⚠️ Serenity is a wellness tool and is not a substitute for professional mental health care.
+        If you are in crisis, please contact a mental health professional or call 988.
+      </p>
+    </div>
+  </footer>
+
+  <!-- =================== TOAST =================== -->
+  <div id="toast" role="status" aria-live="polite">
+    <div class="toast-inner">
+      <span></span>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
